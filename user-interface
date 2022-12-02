@@ -643,7 +643,7 @@ $Ldebloat.Location = New-Object System.Drawing.Point(39, 98)
 $Ldebloat.Name = 'labeldebloat'
 $Ldebloat.Size = New-Object System.Drawing.Size(541, 82)
 $Ldebloat.Text = 'Windows 10 / 11 come with alot of bloatware. which are most of the time unnecessary.
-Remove useless bloatware from current user account. Run individually on other user profile. Windows reinstalls Bloatware after major windows Update. You can Remove them again.'
+Remove useless bloatware from current user account. Run individually on other user account. Windows reinstalls Bloatware after major windows Update. You can Remove them again.'
 #
 # buttonMsStoreReinstall
 #
