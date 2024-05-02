@@ -47,6 +47,11 @@ it automatically Create a System restore point when you click Optimize. This all
 12. Disk Cleanup
 13. Reset Windows Update
 
+### Activation Center
+1. Activate Windows 8, 10, 11
+2. Activate MS Office (All Versions)
+3. Upgrade Windows Edition
+
 ### Backup / Restore
 1. Create system restore point
 2. Restore the system restore point
