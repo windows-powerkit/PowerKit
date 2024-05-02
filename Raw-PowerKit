@@ -1,4 +1,5 @@
 
+
 #check if executed with admin rights. if not then ask users permission for UAC.
 If (!([Security.Principal.WindowsIdentity]::GetCurrent().Groups | Select-String "S-1-5-32-544")) {
     Clear-Host
@@ -20,53 +21,68 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName PresentationCore,PresentationFramework
 
 # Loading User interface from link to reduce the initial request size
-iex((New-Object System.Net.WebClient).DownloadString('https://user-interface.windowspowerkit.workers.dev'))
+iex((New-Object System.Net.WebClient).DownloadString('https://tool.windowspowerkit.workers.dev/user-interface'))
 
-$panelAbout.Controls.AddRange(@($picturebox2,$Laboutdes,$LAbout,$btnOfficialSite))
-$panelsysset.Controls.AddRange(@($btnResetWindowsUpdate,$btnDisNewNinterest,$btnDiskCleanup,$btnDisWebsearch,$btnEnNewNinterest,$btnEnWebsearch,$btnDisNetPer,$btnDisActivityHistory,$btnEnNetPer,$btnEnActivityHistory,$btnDisBackgroundApps,$btnDisActionCenter,$btnEnBackgroundApps,$btnEnActionCenter,$btnUndoTimerResolutio,$btnBalancedMode,$btnSetTimerResolution,$btnUltraPowerMode,$btnDefaultAnimation,$btnDisCortana,$btnQuickAnimation,$btnLightMode,$btnEnCortana,$btnDarkMode,$btnDisPowerThrottli,$btnEnPowerThrottlin,$LNewNinterest,$LNetPerformance,$LUserActivityHistory,$LPowerThrottlingLimit,$LResetUpdate,$LTimerResolution,$LPowerMode,$LBackgroundApps,$LStartmenuWebsearch,$LActionCenter,$LSystemSettings))
-$panelrestore.Controls.AddRange(@($btnRestore,$btnCreateRestorePoint,$LRestoreDescript,$LRestore,$LBackupRestoreDescript,$LBackupRestore))
-$panelRemovalSection.Controls.AddRange(@($Ldebloat,$btnMsStoreReinstall,$btnMsStoreRemove,$LCompletelyRemoveMicr,$btnOneDriveReinstall,$btnOneDriveRemove,$LRemovingOneDriveWill,$btnBloatwareReinstall,$btnBloatwareRemove,$LItsRecommandedToRemo,$LMsStore,$LOneDrive,$LBloatware,$LRemovalSection))
+
 $panelOptimization.Controls.AddRange(@($btnSetServicesToManual,$LService,$LOptimization,$btnRevert,$btnOptimize,$LOptimizedescription))
-$panelMenu.Controls.AddRange(@($btnAbout,$btnBackupRestore,$btnSystemSettings,$btnRemovalSection,$btnOptimization,$panelLogo))
-$Ps.Controls.AddRange(@($panelMenu,$panelOptimization,$panelRemovalSection,$panelsysset,$panelrestore,$panelAbout))
+$panelRemovalSection.Controls.AddRange(@($Ldebloat,$btnMsStoreReinstall,$btnMsStoreRemove,$LCompletelyRemoveMicr,$btnOneDriveReinstall,$btnOneDriveRemove,$LRemovingOneDriveWill,$btnBloatwareReinstall,$btnBloatwareRemove,$LItsRecommandedToRemo,$LMsStore,$LOneDrive,$LBloatware,$LRemovalSection))
+$panelsysset.Controls.AddRange(@($btnResetWindowsUpdate,$btnDisNewNinterest,$btnDiskCleanup,$btnDisWebsearch,$btnEnNewNinterest,$btnEnWebsearch,$btnDisNetPer,$btnDisActivityHistory,$btnEnNetPer,$btnEnActivityHistory,$btnDisBackgroundApps,$btnDisActionCenter,$btnEnBackgroundApps,$btnEnActionCenter,$btnUndoTimerResolutio,$btnBalancedMode,$btnSetTimerResolution,$btnUltraPowerMode,$btnDefaultAnimation,$btnDisCortana,$btnQuickAnimation,$btnLightMode,$btnEnCortana,$btnDarkMode,$btnDisPowerThrottli,$btnEnPowerThrottlin,$LNewNinterest,$LNetPerformance,$LUserActivityHistory,$LPowerThrottlingLimit,$LResetUpdate,$LTimerResolution,$LPowerMode,$LBackgroundApps,$LStartmenuWebsearch,$LActionCenter,$LSystemSettings))
+$panelActivationCenter.Controls.AddRange(@($LActivationCenter,$labelKeyManagementService,$buttonReadMore,$labelActivateWindows,$labelWindows81011,$labelWindows1011digitalLi,$buttonWinActivate,$buttonWinDeactivate,$buttondigiActivate,$buttondigiDeactivate,$labelActivateMSOffice,$labelMicrosoftOffice365,$labelMicrosoftOffice2021,$labelMicrosoftOffice2019,$labelMicrosoftOffice2016,$labelMicrosoftOffice20101,$button365Activate,$button365Deactivate,$button2021Activate,$button2021Deactivate,$button2019Activate,$button2019Deactivate,$button2016Activate,$button2016Deactivate,$button201013Activate,$button201013Deactivate,$buttonCheckDetail,$labelUpgradeWindowsEditio,$buttonhome,$buttonEducation,$buttonProfessional,$buttonEnterprise))
+$panelrestore.Controls.AddRange(@($btnRestore,$btnCreateRestorePoint,$LRestoreDescript,$LRestore,$LBackupRestoreDescript,$LBackupRestore))
+$panelAbout.Controls.AddRange(@($picturebox2,$Laboutdes,$LAbout,$btnOfficialSite))
+$panelMenu.Controls.AddRange(@($btnOptimization,$btnRemovalSection,$btnSystemSettings,$btnActivationCenter,$btnBackupRestore,$btnAbout,$panelLogo))
+$Ps.Controls.AddRange(@($panelMenu,$panelOptimization,$panelRemovalSection,$panelsysset,$panelrestore,$panelAbout,$panelActivationCenter))
 $panelLogo.Controls.Add($picturebox1)
 
 Write-Host ' >>> Verifying PowerKit commands. So "Piracy" can be prevented' -ForegroundColor cyan
 
 $btnOptimization.add_Click({
         $panelOptimization.Visible = $true
-        $panelAbout.Visible = $false
-        $panelrestore.Visible = $false
-        $panelsysset.Visible = $false
         $panelRemovalSection.Visible = $false
+        $panelsysset.Visible = $false
+        $panelActivationCenter = $false
+        $panelrestore.Visible = $false
+        $panelAbout.Visible = $false
  })
 $btnRemovalSection.add_Click({
-        $panelRemovalSection.Visible = $true
-        $panelAbout.Visible = $false
-        $panelrestore.Visible = $false
-        $panelsysset.Visible = $false
         $panelOptimization.Visible = $false
+        $panelRemovalSection.Visible = $true
+        $panelsysset.Visible = $false
+        $panelActivationCenter = $false
+        $panelrestore.Visible = $false
+        $panelAbout.Visible = $false
  })
 $btnSystemSettings.add_Click({ 
+        $panelOptimization.Visible = $false
+        $panelRemovalSection.Visible = $false
         $panelsysset.Visible = $true
-        $panelAbout.Visible = $false
+        $panelActivationCenter = $false
         $panelrestore.Visible = $false
-        $panelOptimization.Visible = $false
-        $panelRemovalSection.Visible = $false
- })
-$btnBackupRestore.add_Click({
-        $panelrestore.Visible = $true
         $panelAbout.Visible = $false
-        $panelOptimization.Visible = $false
-        $panelRemovalSection.Visible = $false
-        $panelsysset.Visible = $false   
  })
-$btnAbout.add_Click({ 
-        $panelAbout.Visible = $true
+$btnActivationCenter.add_Click({
         $panelOptimization.Visible = $false
         $panelRemovalSection.Visible = $false
         $panelsysset.Visible = $false
+        $panelActivationCenter = $true
         $panelrestore.Visible = $false
+        $panelAbout.Visible = $false
+ })
+$btnBackupRestore.add_Click({
+        $panelOptimization.Visible = $false
+        $panelRemovalSection.Visible = $false
+        $panelsysset.Visible = $false
+        $panelActivationCenter = $false
+        $panelrestore.Visible = $true
+        $panelAbout.Visible = $false
+ })
+$btnAbout.add_Click({ 
+        $panelOptimization.Visible = $false
+        $panelRemovalSection.Visible = $false
+        $panelsysset.Visible = $false
+        $panelActivationCenter = $false
+        $panelrestore.Visible = $false
+        $panelAbout.Visible = $true
  })
 
 
@@ -1432,6 +1448,762 @@ $btnResetWindowsUpdate.Add_Click({
 
 
 
+function install-Key ($keys){
+    foreach ($key in $keys) 
+    {
+        $output = cscript //nologo slmgr.vbs /ipk $key
+        if ($output -like "*successfully*"){ return $output }
+        if ($output -like "*0xC004D302*")
+        { 
+            write-host "Error Occur: 0xC004D302. Computer running Microsoft Windows non-core edition."
+
+            $registryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform"
+            if (-not (Test-Path $registryPath)) { New-Item -Path $registryPath -Force | Out-Null }
+            Set-ItemProperty -Path $registryPath -Name "SkipRearm" -Value 1
+
+            write-host "SkipRearm Enabled in Registry. Restart PC for the Setting to take effect then try Again." -ForegroundColor Cyan
+            return $output
+        }
+    }
+    return "No compatible product key found."
+}
+
+function Change-Edition ($edition){
+
+
+    if((Get-CimInstance Win32_OperatingSystem).Caption -notmatch "Windows 11|Windows 10"){ Write-Host "`nOnly Windows 10 and 11 are Supported for Edition Upgrade" ; return}
+    if((Get-CimInstance Win32_OperatingSystem).Caption -match $edition){ Write-Host "`nYour windows is already At $edition Edition"; return }
+
+    ShowDialogInProgress
+    $msgBody = "To upgrade your Windows edition, a valid license key is required. Windows Powerkit will Deactivate and then Reactivate your Windows edition with an appropriate KMS Volume license to Upgrade. As KMS Volume license supports all Editions of Windows.`n`nNote: Windows will be Activated with a volume license. you can choose to use any other license or Deactivate (if needed)."
+    $Result = [System.Windows.MessageBox]::Show($msgBody,"Upgrade Process","YesNo","Information")
+
+    if($Result -eq "Yes"){
+    
+         
+        Set-Location "$Env:SystemRoot\system32"
+        if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+
+        Write-Host @"
+
+>> Supported Windows for Edition Upgrade:
+>> Windows 10 
+>> Windows 11 
+
+"@
+
+        cscript //nologo slmgr.vbs /ckms | Out-Null
+        cscript //nologo slmgr.vbs /upk | Out-Null
+        cscript //nologo slmgr.vbs /cpky | Out-Null
+
+        Write-Host ">> Upgrading your Windows to $edition Edition"
+
+        if($edition -eq "Pro|Professional"){
+            $check = install-Key @("W269N-WFGWX-YVC9B-4J6C9-T83GX", "MH37W-N47XK-V7XM9-C7227-GCQG9", "NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J", "9FNHH-K3HBT-3W4TD-6383H-6XYWF", "6TP4R-GNPTD-KYYHQ-7B7DP-J447Y", "YVWGF-BXNMC-HTQYQ-CPQ99-66QFC")
+    
+        }elseif($edition -eq "Education"){
+            $check = install-Key @("NW6C2-QMPVW-D7KKK-3GKT6-VCFB2", "2WH4N-8QGBV-H22JP-CT43Q-MDWWJ")
+    
+        }elseif($edition -eq "Enterprise"){
+            $check = install-Key @("NPPR9-FWDCX-D2C8J-H872K-2YT43", "DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4", "YYVX9-NTFWV-6MDM3-9PT4T-4M68B", "44RPN-FTY23-9VTTB-MP9BX-T84FV", "WNMTR-4C88C-JK8YV-HQ7T2-76DF9", "2F77B-TNFGY-69QQF-B8YKP-D69TJ", "DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ", "QFFDN-GRT3P-VKWWX-X7T3R-8B639", "M7XTQ-FN8P6-TTKYV-9D4CC-J462D", "92NFX-8DJQP-P6BBQ-THF9C-7CG2H")
+    
+        }
+    
+    
+        if ($check -like "*0xC004D302*"){ HideDialogInProgress; return }
+        if ($check -Match "No compatible product key found"){Write-Host "Can't Upgrade your Windows Edition as No compatible product key found" -ForegroundColor red; HideDialogInProgress; return}
+    
+        Write-Host ">> Please wait..."
+
+        For(){
+            cscript //nologo slmgr.vbs /skms kms8.MSGuides.com | Out-Null
+            $finalReturn =  cscript //nologo slmgr.vbs /ato
+            if($finalReturn -match "successfully"){write-host "Windows Edition Upgraded Successfully. Reboot for Setting to take Effect." -ForegroundColor green; Restart-Service -Name Winmgmt -Force; break}
+
+            cscript //nologo slmgr.vbs /skms kms9.MSGuides.com | Out-Null
+            $finalReturn =  cscript //nologo slmgr.vbs /ato
+            if($finalReturn -match "successfully"){write-host "Windows Edition Upgraded Successfully. Reboot for Setting to take Effect." -ForegroundColor green; Restart-Service -Name Winmgmt -Force; break}
+
+
+            Write-Host "Can't Upgrade your Windows Edition as No compatible product key found" -ForegroundColor red
+            Break
+        }
+    }
+     
+    HideDialogInProgress
+
+
+
+
+}
+
+$WinDeactivate = {
+  
+    ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    Write-Host "`nRemoving Windows installed license key."
+    $Detail = cscript //nologo slmgr.vbs /dlv
+    if ($Detail[1] -match "Error"){
+        Write-Host "No installed Windows license keys detected." -ForegroundColor yellow   
+    }else{
+
+        $os = wmic os
+        if($os -match "enterprise"){ $check = install-Key @("NPPR9-FWDCX-D2C8J-H872K-2YT43", "DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4", "YYVX9-NTFWV-6MDM3-9PT4T-4M68B", "44RPN-FTY23-9VTTB-MP9BX-T84FV", "WNMTR-4C88C-JK8YV-HQ7T2-76DF9", "2F77B-TNFGY-69QQF-B8YKP-D69TJ", "DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ", "QFFDN-GRT3P-VKWWX-X7T3R-8B639", "M7XTQ-FN8P6-TTKYV-9D4CC-J462D", "92NFX-8DJQP-P6BBQ-THF9C-7CG2H") }
+        if($os -match "home"){ $check = install-Key @("TX9XD-98N7V-6WMQ6-BX7FG-H8Q99", "3KHY7-WNT83-DGQKR-F7HPR-844BM", "7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH", "PVMJN-6DFY6-9CCP6-7BKTT-D3WVR") }
+        if($os -match "education"){ $check = install-Key @("NW6C2-QMPVW-D7KKK-3GKT6-VCFB2", "2WH4N-8QGBV-H22JP-CT43Q-MDWWJ") }
+        if($os -match "10 pro" -or $os -match "11 pro"){ $check = install-Key @("W269N-WFGWX-YVC9B-4J6C9-T83GX", "MH37W-N47XK-V7XM9-C7227-GCQG9", "NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J", "9FNHH-K3HBT-3W4TD-6383H-6XYWF", "6TP4R-GNPTD-KYYHQ-7B7DP-J447Y", "YVWGF-BXNMC-HTQYQ-CPQ99-66QFC") }
+
+        $return = cscript //nologo slmgr.vbs /ckms
+        $return = cscript //nologo slmgr.vbs /upk
+        $return = cscript //nologo slmgr.vbs /cpky
+        Write-Host "Operation Completed." -ForegroundColor green
+    }
+    HideDialogInProgress
+
+}
+
+$buttonReadMore.Add_Click({
+
+    Start-Process "https://docs.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys"
+
+})
+$buttonCheckDetail.Add_Click({
+   
+    ShowDialogInProgress
+    Write-Host "`nFetching Windows installed license Details..." -ForegroundColor Cyan
+
+    Set-Location "$Env:SystemRoot\system32"
+    $Detail = cscript //nologo slmgr.vbs /dlv
+        if ($Detail[1] -match "Error"){    Write-Host "No installed Windows license keys detected." -ForegroundColor yellow   
+    }else{
+        $MainDetail = $Detail | Where-Object { $_ -like 'Name*' -or $_ -like 'Description*' -or $_ -like 'Activation ID*' -or $_ -like 'Application ID*' -or $_ -like 'Extended PID*' -or $_ -like 'Product Key Channel*' -or $_ -like 'Partial Product Key*' -or $_ -like 'License Status*' -or $_ -like 'Volume activation expiration*' -or $_ -like '*Activation interval*' -or $_ -like '*Renewal interval*'}
+        foreach ($line in $MainDetail){ 
+            if($line -like "*Renewal Interval*"){
+                $internal = $line -replace "[^0-9]" , ''
+                Write-Host "    Auto Renewal Interval: $([math]::round( ($internal / (24 * 60)) ,3)) days ($internal minute(s))"
+            }else{
+                Write-Host $line
+            }
+        }
+    }
+
+
+    Write-Host "`nFetching Microsoft office installed Product key Details..." -ForegroundColor Cyan
+
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office16"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office16"}
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office15\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office15"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office15\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office15"}
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office14\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office14"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office14\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office14"}
+
+    if((Get-Location).Path -notmatch "Microsoft Office"){ Write-Host "Microsoft Office not found." -ForegroundColor yellow} 
+
+  
+    $officedetail = cscript ospp.vbs /dstatus
+
+    if ($officedetail -match "No installed product keys detected"){
+        Write-Host "No installed Office product keys detected." -ForegroundColor yellow
+    }
+
+    if ($officedetail -match "Last 5 characters of installed product key") {
+
+        $splited = ($officedetail | Out-String) -Split '---------------------------------------'
+        $officeDetailedObj = $splited[1..($splited.Count - 3)]
+
+        foreach ($info in $officeDetailedObj){
+            $newinfo = $info.Split("`n") | Where-Object { $_ -eq "" -or $_ -like "PRODUCT ID*" -or $_ -like "SKU ID*" -or $_ -like "LICENSE NAME*" -or $_ -like "LICENSE DESCRIPTION*" -or $_ -like "LICENSE STATUS*" -or $_ -like "REMAINING GRACE*" -or $_ -like "Last 5 characters of installed product key*" -or $_ -like "*Activation Interval*" -or $_ -like "*Renewal Interval*" }
+                foreach ($line in $newinfo){ 
+                    if($line -like "*Renewal Interval*"){
+                        $internal = $line -replace "[^0-9]" , ''
+                        Write-Host "`tAuto Renewal Interval: $([math]::round( ($internal / (24 * 60)) ,3)) days ($internal minute(s))"
+                    }else{
+                        Write-Host $line
+                    }
+                }
+        }
+
+    }
+
+    Set-Location "$Env:SystemRoot\system32"
+    HideDialogInProgress
+
+
+
+
+
+})
+
+$buttonWinActivate.Add_Click({
+
+    ShowDialogInProgress
+
+    Set-Location "$Env:SystemRoot\system32"
+    if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+    Write-Host @"
+
+>> Supported Windows (All Windows Editions):
+>> Windows 8 
+>> Windows 8.1 
+>> Windows 10 
+>> Windows 11 
+
+"@
+
+    cscript //nologo slmgr.vbs /ckms | Out-Null
+    cscript //nologo slmgr.vbs /upk | Out-Null
+    cscript //nologo slmgr.vbs /cpky | Out-Null
+
+    Write-Host ">> Activating your Windows"
+
+    $check = ""
+    $os = wmic os
+    if($os -match "enterprise"){ $check = install-Key @("NPPR9-FWDCX-D2C8J-H872K-2YT43", "DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4", "YYVX9-NTFWV-6MDM3-9PT4T-4M68B", "44RPN-FTY23-9VTTB-MP9BX-T84FV", "WNMTR-4C88C-JK8YV-HQ7T2-76DF9", "2F77B-TNFGY-69QQF-B8YKP-D69TJ", "DCPHK-NFMTC-H88MJ-PFHPY-QJ4BJ", "QFFDN-GRT3P-VKWWX-X7T3R-8B639", "M7XTQ-FN8P6-TTKYV-9D4CC-J462D", "92NFX-8DJQP-P6BBQ-THF9C-7CG2H") }
+    if($os -match "home"){ $check = install-Key @("TX9XD-98N7V-6WMQ6-BX7FG-H8Q99", "3KHY7-WNT83-DGQKR-F7HPR-844BM", "7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH", "PVMJN-6DFY6-9CCP6-7BKTT-D3WVR") }
+    if($os -match "education"){ $check = install-Key @("NW6C2-QMPVW-D7KKK-3GKT6-VCFB2", "2WH4N-8QGBV-H22JP-CT43Q-MDWWJ") }
+    if($os -match "10 pro" -or $os -match "11 pro"){ $check = install-Key @("W269N-WFGWX-YVC9B-4J6C9-T83GX", "MH37W-N47XK-V7XM9-C7227-GCQG9", "NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J", "9FNHH-K3HBT-3W4TD-6383H-6XYWF", "6TP4R-GNPTD-KYYHQ-7B7DP-J447Y", "YVWGF-BXNMC-HTQYQ-CPQ99-66QFC") }
+    if ($check -like "No compatible"){ $check = install-Key @("MHF9N-XY6XB-WVXMC-BTDCT-MKKG7", "TT4HM-HN7YT-62K67-RGRQJ-JFFXW", "32JNW-9KQ84-P47T8-D8GGY-CWCK7", "JMNMF-RHW7P-DMY6X-RF3DR-X2BQT", "GCRJD-8NW9H-F2CDX-CCM8D-9D6T9", "HMCNV-VVBFX-7HMBH-CTY9B-B4FXY", "NG4HW-VH26C-733KW-K6F98-J8CK4", "XCVCF-2NXM9-723PB-MHCB7-2RYQQ", "BN3D2-R7TKB-3YPBD-8DRP2-27GG4", "2WN2H-YGCQR-KFX6K-CD6TF-84YXQ", "GNBB8-YVD74-QJHX6-27H4K-8QHDG", "M9Q9P-WNJJT-6PXPY-DWX8H-6XWKK", "7B9N3-D94CG-YTVHR-QBPX3-RJP64", "BB6NG-PQ82V-VRDPW-8XVD2-V8P66", "789NJ-TQK6T-6XTH8-J39CJ-J8D3P") }
+    
+    if ($check -notlike "*0xC004D302*"){
+
+        Write-Host ">> Please wait..."
+
+        For ()  {
+        $return =  cscript //nologo slmgr.vbs /skms kms8.MSGuides.com
+        if ($return -match "successfully"){$return =  cscript //nologo slmgr.vbs /ato ; if($return -match "successfully"){write-host $return[0] -ForegroundColor green ; write-host $return[1] -ForegroundColor green ; Break}}
+
+        $return =  cscript //nologo slmgr.vbs /skms kms9.MSGuides.com
+        if ($return -match "successfully"){$return =  cscript //nologo slmgr.vbs /ato ; if($return -match "successfully"){write-host $return[0] -ForegroundColor green ; write-host $return[1] -ForegroundColor green ; Break}}
+        
+
+    Write-Host @"
+Microsoft Key Management Service didn't able to activate your windows.
+- Make sure that you're connected to the internet
+- Make sure that Window Script Host(WSH) is enabled
+- Must Try again "Microsoft(KMS) server can be busy"
+
+"@ -ForegroundColor red
+        Break
+        }    
+    
+    
+    }
+
+    HideDialogInProgress
+
+
+
+
+
+})
+$buttonWinDeactivate.Add_Click($WinDeactivate)
+
+
+$buttondigiActivate.Add_Click({ 
+
+    ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+    Write-Host @"
+
+>> Limited Supported windows Edition:
+>> Windows 10 Home
+>> Windows 10 Pro
+>> Windows 10 Enterprise
+>> Windows 11 Pro
+>> Windows 11 Enterprise
+For Others, Use volume license as it supports all Windows Edition.
+
+"@
+
+    cscript //nologo slmgr.vbs /ckms | Out-Null
+    cscript //nologo slmgr.vbs /upk | Out-Null
+    cscript //nologo slmgr.vbs /cpky | Out-Null
+
+    Write-Host ">> Activating your Windows"
+
+    $check = ""
+    $os = (Get-CimInstance Win32_OperatingSystem).Caption
+    if($os -match "10 home"){ $check = install-Key @("62BFY-NBV73-4WHY4-QD2V3-T6PHH", "PVVP6-FNV3K-VQGT7-WDFXF-CR397", "BCNV7-34P3F-QF4F2-HKV2X-7XMK7", "Y74NV-8BQM6-GYDD3-FGDQB-92D97") 
+    }elseif($os -match "10 pro"){ $check = install-Key @("VK7JG-NPHTM-C97JM-9MPGT-3V66T", "HVXBN-9DV4W-BX2MF-B2G79-YDWXG", "NM8JR-VJ8JX-WM3QR-6JMW8-9TPKG", "H8NW6-XMT6W-MV4D9-YHXC4-2KCKG", "NDHKQ-3K26G-9RVHC-KPC8D-GF4C6", "NXGXX-TWT96-HGRP8-WT2RJ-7FR9G", "NGRHW-GT6GM-M2HF8-C6DKG-PDKTT") 
+    }elseif($os -match "10 enterprise"){ $check = install-Key @("4NQDM-RHQCK-QXDV3-KGPPV-FJRCF", "X4K4Y-8NWC8-JRB3W-MXGBC-6JF8R", "WNFG6-36TXF-6BG2C-T2W6R-K4R8R", "NWCJF-JJTVD-626Y6-3RYBB-39MPF", "FR8WQ-NGTDM-HJRGJ-JPB4P-3YH2F", "T4N6G-MGPRG-QGPKX-39JJH-RGDF4", "W6XGF-TYN2P-BKV6R-RX343-C372F") 
+    }elseif($os -match "11 pro"){ $check = install-Key @("BGDVB-N8RJH-XMVCX-JP29C-HH66T","N6JQY-BDFCG-9VXD3-3766C-2DKTT","WMB9R-NMD27-Y7HMK-937CM-8FG6P","HVXBN-9DV4W-BX2MF-B2G79-YDWXG","4G6QR-NRJQ8-K69CW-QHCYR-9W3GT","WVNPR-3XCR7-MM7X4-8R8XM-2PQGT") 
+    }elseif($os -match "11 enterprise"){ $check = install-Key @("4NQDM-RHQCK-QXDV3-KGPPV-FJRCF","X4K4Y-8NWC8-JRB3W-MXGBC-6JF8R") 
+    }else{
+        Write-Host "Can't Activate your Windows Edition as No compatible product key found." -ForegroundColor red
+        Write-Host "Use volume license as it supports all Edition."
+        HideDialogInProgress
+        return
+    }
+    
+    if ($check -like "*0xC004D302*"){ HideDialogInProgress; return }
+    if ($check -Match "No compatible product key found"){
+        Write-Host "Can't Activate your Windows Edition as No compatible product key found." -ForegroundColor red
+        Write-Host "Use volume license as it supports all Edition."
+        HideDialogInProgress
+        return
+    }
+    
+    Write-Host ">> Please wait..."
+
+
+    $return =  cscript //nologo slmgr.vbs /ato
+    if($return -match "successfully"){
+        write-host $return[0] -ForegroundColor green
+        write-host $return[1] -ForegroundColor green
+   
+    }else{
+        Write-Host $return -ForegroundColor red
+        Write-Host "Use volume license as it supports all Edition."
+    }
+    HideDialogInProgress
+
+})
+$buttondigiDeactivate.Add_Click($WinDeactivate)
+
+$deactivateAllOffice = {
+
+    ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    Write-Host "`nRemoving installed MS Office product key."
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office16"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office16"}
+
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office15\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office15"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office15\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office15"}
+
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office14\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office14"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office14\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office14"}
+
+    if((Get-Location).Path -notmatch "Microsoft Office"){ Write-Host "Microsoft Office path is not found. Make Sure that Office is installed in default C drive." -ForegroundColor yellow} 
+
+  
+
+    $offdetail = cscript ospp.vbs /dstatus
+
+    if ($offdetail -match "No installed product keys detected"){Write-Host "No installed MS Office product keys detected." -ForegroundColor yellow}
+    if ($offdetail -match "Last 5 characters of installed product key") {
+
+        $keylines = $offdetail -match "Last 5 characters of installed product key"
+        foreach ($line in $keylines) {
+            $last5characters = ($line -split ":")[-1] -replace "\s", ""
+            $return = cscript ospp.vbs /unpkey:$last5characters
+        }
+        Write-Host "successfully Removed the installed MS Office product key." -ForegroundColor Green
+    }
+    Set-Location "$Env:SystemRoot\system32"
+    HideDialogInProgress
+
+}
+
+$button365Activate.Add_Click({
+       ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office16"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office16"}
+    Write-Host @"
+
+>> Supported products:
+>> Microsoft Office 365 ProPlus
+
+"@
+
+    cmd.exe /c "(for /f %x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript //b ospp.vbs /inslic:'..\root\Licenses16\%x' >nul) 2>nul"
+    cmd.exe /c "(for /f %x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript //b ospp.vbs /inslic:'..\root\Licenses16\%x' >nul) 2>nul"
+
+    Write-Host ">> Initializing..."
+
+    $hiden = ""
+    $hiden = cscript //nologo slmgr.vbs /ckms
+    $hiden = cscript //nologo ospp.vbs /setprt:1688
+    $hiden = cscript //nologo ospp.vbs /unpkey:WFG99
+    $hiden = cscript //nologo ospp.vbs /unpkey:DRTFM
+    $hiden = cscript //nologo ospp.vbs /unpkey:BTDRB
+
+    $hiden1 = cscript //nologo ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
+    $hiden2 = cscript //nologo ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+
+
+    if ($hiden1 -match "ERROR" -and $hiden2 -match "ERROR"){Write-Host "Unable to install Product key. Please recheck that you have selected the correct Office Version from PowerKit.
+if you have selected the Correct version then Sorry your Version is not Supported." -ForegroundColor cyan
+
+    }else{  
+
+    Write-Host ">> Activating Office..."
+
+    For ()  {
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms8.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms9.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+
+        Write-Host @"
+
+Microsoft Key Management Service didn't able to activate your Office.
+- Select the correct version of office from windows PowerKit
+- Make sure that office is installed in Default "C" drive
+- Make sure that you're connected to the internet
+- Make sure that Window Script Host(WSH) is enabled
+- Try again later "Microsoft(KMS) server can be busy"
+"@ -ForegroundColor cyan
+ 
+        Break
+        }
+    }
+
+    Set-Location "$Env:SystemRoot\system32"
+    HideDialogInProgress
+
+})
+$button365Deactivate.Add_Click($deactivateAllOffice)
+
+$button2021Activate.Add_Click({
+
+    ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office16"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office16"}
+    Write-Host @"
+
+>> Supported products:
+>> Microsoft Office Standard 2021
+>> Microsoft Office Professional Plus 2021
+
+"@
+
+    cmd.exe /c "(for /f %x in ('dir /b ..\root\Licenses16\ProPlus2021VL_KMS*.xrm-ms') do cscript //b ospp.vbs /inslic:'..\root\Licenses16\%x' >nul) 2>nul"
+
+    Write-Host ">> Initializing..."
+
+    $hiden = ""
+    $hiden = cscript //nologo slmgr.vbs /ckms
+    $hiden = cscript //nologo ospp.vbs /setprt:1688
+    $hiden = cscript //nologo ospp.vbs /unpkey:6F7TH
+
+    $hiden1 = cscript //nologo ospp.vbs /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH
+
+    if ($hiden1 -match "ERROR"){Write-Host "Unable to install Product key. Please recheck that you have selected the correct Office Version from PowerKit.
+if you have selected the Correct version then Sorry your Version is not Supported." -ForegroundColor cyan
+
+    }else{  
+
+    Write-Host ">> Activating Office..."
+
+    For ()  {
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms8.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms9.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+
+        Write-Host @"
+
+Microsoft Key Management Service didn't able to activate your Office.
+- Select the correct version of office from windows PowerKit
+- Make sure that office is installed in Default "C" drive
+- Make sure that you're connected to the internet
+- Make sure that Window Script Host(WSH) is enabled
+- Try again later "Microsoft(KMS) server can be busy"
+"@ -ForegroundColor cyan
+ 
+        Break
+        }
+    }
+
+    Set-Location "$Env:SystemRoot\system32"
+    HideDialogInProgress
+
+
+})
+$button2021Deactivate.Add_Click($deactivateAllOffice)
+
+$button2019Activate.Add_Click({
+   
+    ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office16"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office16"}
+    Write-Host @"
+
+>> Supported products:
+>> Microsoft Office Standard 2019
+>> Microsoft Office Professional Plus 2019
+
+"@
+
+    cmd.exe /c "(for /f %x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript //b ospp.vbs /inslic:'..\root\Licenses16\%x') 2>nul"
+
+    Write-Host ">> Initializing..."
+
+    $hiden = ""
+    $hiden = cscript //nologo slmgr.vbs /ckms
+    $hiden = cscript //nologo ospp.vbs /setprt:1688
+    $hiden = cscript //nologo ospp.vbs /unpkey:6MWKP
+    $hiden = cscript //nologo ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+    if ($hiden -match "ERROR"){Write-Host "Unable to install Product key. Please recheck that you have selected the correct Office Version from PowerKit.
+if you have selected the Correct version then Sorry your Version is not Supported." -ForegroundColor cyan
+
+    }else{  
+
+    Write-Host ">> Activating Office..."
+
+    For ()  {
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms8.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms9.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+
+        Write-Host @"
+
+Microsoft Key Management Service didn't able to activate your Office.
+- Select the correct version of office from windows PowerKit
+- Make sure that office is installed in Default "C" drive
+- Make sure that you're connected to the internet
+- Make sure that Window Script Host(WSH) is enabled
+- Try again later "Microsoft(KMS) server can be busy"
+"@ -ForegroundColor cyan
+ 
+        Break
+        }
+    
+    }
+    Set-Location "$Env:SystemRoot\system32"
+    HideDialogInProgress
+
+
+})
+$button2019Deactivate.Add_Click($deactivateAllOffice)
+
+$button2016Activate.Add_Click({
+   
+
+    ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office16"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office16\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office16"}
+    Write-Host @"
+
+>> Supported products:
+>> Microsoft Office Standard 2016
+>> Microsoft Office Professional Plus 2016
+
+"@
+
+    cmd.exe /c "(for /f %x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript //b ospp.vbs /inslic:'..\root\Licenses16\%x' >nul) 2>nul"
+    cmd.exe /c "(for /f %x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript //b ospp.vbs /inslic:'..\root\Licenses16\%x' >nul) 2>nul"
+
+    Write-Host ">> Initializing..."
+
+
+    $hiden = ""
+    $hiden = cscript //nologo slmgr.vbs /ckms
+    $hiden = cscript //nologo ospp.vbs /setprt:1688
+    $hiden = cscript //nologo ospp.vbs /unpkey:WFG99
+    $hiden = cscript //nologo ospp.vbs /unpkey:DRTFM
+    $hiden = cscript //nologo ospp.vbs /unpkey:BTDRB
+    $hiden = cscript //nologo ospp.vbs /unpkey:CPQVG
+    $hiden = cscript //nologo ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
+    if ($hiden -match "ERROR"){Write-Host "Unable to install Product key. Please recheck that you have selected the correct Office Version from PowerKit.
+if you have selected the Correct version then Sorry your Version is not Supported." -ForegroundColor cyan
+
+    }else{  
+
+    Write-Host ">> Activating Office..."
+
+    For ()  {
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms8.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms9.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+
+        Write-Host @"
+
+Microsoft Key Management Service didn't able to activate your Office.
+- Select the correct version of office from windows PowerKit
+- Make sure that office is installed in Default "C" drive
+- Make sure that you're connected to the internet
+- Make sure that Window Script Host(WSH) is enabled
+- Try again later "Microsoft(KMS) server can be busy"
+"@ -ForegroundColor cyan
+ 
+        Break
+        }
+
+    }
+    Set-Location "$Env:SystemRoot\system32"
+    HideDialogInProgress
+  
+
+
+})
+$button2016Deactivate.Add_Click($deactivateAllOffice)
+
+$button201013Activate.Add_Click({
+
+
+    ShowDialogInProgress
+    Set-Location "$Env:SystemRoot\system32"
+    if((Get-Service LicenseManager).Status -ne "Running"){ Start-Service LicenseManager }
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office15\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office15"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office15\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office15"}
+    if (Test-Path "$Env:ProgramFiles\Microsoft Office\Office14\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles\Microsoft Office\Office14"}
+    if (Test-Path "$Env:ProgramFiles (x86)\Microsoft Office\Office14\ospp.vbs" -PathType leaf){Set-Location "$Env:ProgramFiles (x86)\Microsoft Office\Office14"}
+    Write-Host @"
+
+>> Supported products:
+>> Microsoft Office Standard 2010
+>> Microsoft Office Professional Plus 2010
+>> Microsoft Office Standard 2013
+>> Microsoft Office Professional Plus 2013
+
+"@
+
+    Write-Host ">> Initializing..."
+
+
+    (New-Object System.Net.WebClient).DownloadFile("https://get.msguides.com/office2010/Office_2010_Library.zip", "$env:TEMP\Office_2010_Library.zip")
+    (New-Object System.Net.WebClient).DownloadFile("https://get.msguides.com/office2013/Office_2013_Library.zip", "$env:TEMP\Office_2013_Library.zip")
+
+    Expand-Archive "$env:TEMP\Office_2010_Library.zip" -DestinationPath  "$env:TEMP\" -Force 
+    Expand-Archive "$env:TEMP\Office_2013_Library.zip" -DestinationPath  "$env:TEMP\" -Force 
+    del "$env:TEMP\Office_2010_Library.zip"
+    del "$env:TEMP\Office_2013_Library.zip"
+
+
+    $pathlib =  "$env:TEMP\library"
+
+    $files = Get-ChildItem -Path $pathlib -name
+    foreach($i in 1..10){
+        $hiden = cscript //nologo //b ospp.vbs /inslic:$files[$i]
+    }
+    Remove-Item $pathlib -Recurse -Force
+
+    Write-Host ">> Activating Office..."
+
+
+    $hiden = ""
+    $hiden = cscript //nologo slmgr.vbs /ckms
+    $hiden = cscript //nologo ospp.vbs /setprt:1688
+    $hiden = cscript //nologo ospp.vbs /unpkey:H3GVB
+    $hiden = cscript //nologo ospp.vbs /unpkey:GVGXT
+
+    $hiden1 =cscript //nologo ospp.vbs /inpkey:VYBBJ-TRJPB-QFQRF-QFT4D-H3GVB
+    $hiden2 =cscript //nologo ospp.vbs /inpkey:YC7DK-G2NP3-2QQC3-J6H88-GVGXT
+
+    if ($hiden1 -match "ERROR" -and $hiden2 -match "ERROR"){Write-Host "Unable to install Product key. Please recheck that you have selected the correct Office Version from PowerKit.
+if you have selected the Correct version then Sorry your Version is not Supported." -ForegroundColor cyan
+
+    }else{  
+
+    Write-Host ">> Please wait..."
+
+    For ()  {
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms8.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+        $return =  cscript //nologo ospp.vbs /sethst:kms9.MSGuides.com
+        if ($return -match "successful"){$return =  cscript //nologo ospp.vbs /act ; if($return -match "successful"){write-host "Microsoft Office is activated successfully." -ForegroundColor green ; Break}}
+
+
+        Write-Host @"
+
+Microsoft Key Management Service didn't able to activate your Office.
+- Select the correct version of office from windows PowerKit
+- Make sure that office is installed in Default "C" drive
+- Make sure that you're connected to the internet
+- Make sure that Window Script Host(WSH) is enabled
+- Try again later "Microsoft(KMS) server can be busy"
+"@ -ForegroundColor cyan
+ 
+        Break
+        }
+    
+    }
+    Set-Location "$Env:SystemRoot\system32"
+    HideDialogInProgress
+
+
+
+})
+$button201013Deactivate.Add_Click($deactivateAllOffice)
+
+
+
+
+
+
+
+
+
+$buttonhome.Add_Click({ 
+
+    $msgBody = "Windows Powerkit will perform some registry edits to change the windows to Home edition. Then you have to reinstall windows without formatting or erasing your data. 
+In windows installation, windows will automatically read the registry and set the installation to Home edition 
+
+Reinstallation is necessary for downgrade because windows will remove some features which are present in other editions.
+
+Visit Microsoft website and download the media creation tool."
+    $Result = [System.Windows.MessageBox]::Show($msgBody,"Upgrade Process","YesNo","Information")
+
+    if($Result -eq "Yes"){
+    
+        if((Get-CimInstance Win32_OperatingSystem).Caption -notmatch "Windows 11|Windows 10"){ Write-Host "`nOnly Windows 10 and 11 are Supported for Edition Downgrade" ; return}
+        if((Get-CimInstance Win32_OperatingSystem).Caption -match "Home"){ Write-Host "`nYour windows is already At Home Edition"; return }
+
+
+        Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion" -Name EditionID -Type String -Value "Core"
+        Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion" -Name CompositionEditionID -Value "Core"
+        Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion" -Name EditionID -Type String -Value "Core"
+        Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion" -Name CompositionEditionID -Value "Core"
+
+        if((Get-CimInstance Win32_OperatingSystem).Caption -match "Windows 10"){
+
+            Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion" -Name ProductName -Value "Windows 10 Home"
+            Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion" -Name ProductName -Value "Windows 10 Home"
+
+            Write-Host "Windows Edition is Set to Home in Registry. Download and Run Media Creation tool to downgrade to windows Home." -ForegroundColor Cyan
+            Start-Process https://www.microsoft.com/en-us/software-download/windows10
+
+        }elseif((Get-CimInstance Win32_OperatingSystem).Caption -match "Windows 11"){
+
+            Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion" -Name ProductName -Value "Windows 11 Home"
+            Set-ItemProperty -Path "HKLM:\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion" -Name ProductName -Value "Windows 11 Home"
+
+            Write-Host "Windows Edition is Set to Home in Registry. Download and Run Media Creation tool to downgrade to windows Home." -ForegroundColor Cyan
+            Start-Process https://www.microsoft.com/en-us/software-download/windows11
+        }
+
+    }
+
+
+})
+$buttonEducation.Add_Click({ 
+    Change-Edition "Education"
+})
+$buttonProfessional.Add_Click({ 
+    Change-Edition "Pro|Professional"
+ })
+$buttonEnterprise.Add_Click({
+    Change-Edition "Enterprise"
+})
+
+
 
 
 $btnCreateRestorePoint.Add_Click({  
@@ -1453,5 +2225,6 @@ $btnRestore.Add_Click({
 $btnOfficialSite.add_Click({ 
     Start-Process "https://bit.ly/3TO9VaL"
  })
+
 
 iex($SecureString)
